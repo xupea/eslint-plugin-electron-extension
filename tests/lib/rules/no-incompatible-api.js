@@ -62,14 +62,15 @@ ruleTester.run("no-incompatible-api", rule, {
     // // https://www.electronjs.org/docs/latest/api/extensions#chromewebrequest
     "chrome.webRequest.allPropertiesMethodsEvents",
   ],
-  
+
   invalid: [
     // extension
     {
       code: "chrome.extension.inIncognitoContext",
       errors: [
         {
-          message: "chrome.extension.inIncognitoContext is supported by electron.",
+          message:
+            "chrome.extension.inIncognitoContext is not supported by electron.",
         },
       ],
     },
@@ -77,16 +78,18 @@ ruleTester.run("no-incompatible-api", rule, {
       code: "chrome.extension.getExtensionTabs()",
       errors: [
         {
-          message: "chrome.extension.getExtensionTabs is supported by electron.",
+          message:
+            "chrome.extension.getExtensionTabs is not supported by electron.",
         },
       ],
     },
-    // runtime 
+    // runtime
     {
       code: "chrome.runtime.openOptionsPage",
       errors: [
         {
-          message: "chrome.runtime.openOptionsPage is supported by electron.",
+          message:
+            "chrome.runtime.openOptionsPage is not supported by electron.",
         },
       ],
     },
@@ -95,7 +98,7 @@ ruleTester.run("no-incompatible-api", rule, {
       code: "chrome.storage.sync",
       errors: [
         {
-          message: "chrome.storage.sync is supported by electron.",
+          message: "chrome.storage.sync is not supported by electron.",
         },
       ],
     },
@@ -103,7 +106,7 @@ ruleTester.run("no-incompatible-api", rule, {
       code: "chrome.storage.managed",
       errors: [
         {
-          message: "chrome.storage.managed is supported by electron.",
+          message: "chrome.storage.managed is not supported by electron.",
         },
       ],
     },
@@ -112,16 +115,18 @@ ruleTester.run("no-incompatible-api", rule, {
       code: "chrome.tabs.captureVisibleTab",
       errors: [
         {
-          message: "chrome.tabs.captureVisibleTab is supported by electron.",
+          message:
+            "chrome.tabs.captureVisibleTab is not supported by electron.",
         },
       ],
     },
     // management
     {
-      code: "chrome.management.otherMethods",
+      code: "chrome.management.otherPropertiesMethodsEvents",
       errors: [
         {
-          message: "chrome.management.otherMethods is supported by electron.",
+          message:
+            "chrome.management.otherPropertiesMethodsEvents is not supported by electron.",
         },
       ],
     },
