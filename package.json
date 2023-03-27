@@ -5,7 +5,10 @@
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "extension",
+    "electron",
+    "electron-extension"
   ],
   "author": "Peter Xu",
   "main": "./lib/index.js",
@@ -14,8 +17,7 @@
     "lint": "npm-run-all \"lint:*\"",
     "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
     "lint:js": "eslint .",
-    "test": "mocha tests --recursive",
-    "update:eslint-docs": "eslint-doc-generator"
+    "test": "mocha tests --recursive"
   },
   "dependencies": {
     "requireindex": "^1.2.0"
