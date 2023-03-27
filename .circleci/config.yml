@@ -1,0 +1,40 @@
+version: 2.1
+
+jobs:
+  test-plugin:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-node_modules-{{ arch }}-{{ checksum "package-lock.json" }}
+            - v1-node_modules-{{ arch }}
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-node_modules-{{ arch }}-{{ checksum "package-lock.json" }}
+      - run: npm run test
+
+  release:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run: npx semantic-release@19
+
+workflows:
+  version: 2
+  test_and_release:
+    # Run the test jobs first, then the release only when all the test jobs are successful
+    jobs:
+      - test-plugin:
+          name: test-plugin
+      - release:
+          requires:
+            - test-plugin
+          filters:
+            branches:
+              only:
+                - main
