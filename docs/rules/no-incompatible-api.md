@@ -2,17 +2,17 @@
 
 <!-- end auto-generated rule header -->
 
-Please describe the origin of the rule here.
+Electron supports a subset of the Chrome Extensions API.
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to keep extensions working in electron.
 
 Examples of **incorrect** code for this rule:
 
 ```js
 
-// fill me in
+chrome.scripting.executeScript()
 
 ```
 
@@ -20,13 +20,9 @@ Examples of **correct** code for this rule:
 
 ```js
 
-// fill me in
+chrome.tabs.executeScript()
 
 ```
-
-### Options
-
-If there are any options, describe them here. Otherwise, delete this section.
 
 ## When Not To Use It
 
